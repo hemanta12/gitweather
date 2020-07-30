@@ -6,10 +6,10 @@
     box-sizing: border-box;
 }
 
-:root {
+ :root {
     --primary-font-size: 8.5rem;
-    --secondary-font-size: 1.5rem;
-    --third-font-size: 1.35rem;
+    --secondary-font-size: 1.3rem;
+    --third-font-size: 0.9rem;
     --fourth-font-size: 0.85rem;
     --fifth-font-size: 1rem;
     --primary-background-color: rgb(51, 49, 49);
@@ -18,8 +18,13 @@
 }
 
 body {
-    /* margin-left: 1%; */
-    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-container {
+    width: 60vw;
+    margin: auto;
 }
 
 .container1 {
@@ -30,7 +35,7 @@ body {
 }
 
 .container2 {
-    height: 23vh;
+    height: 22vh;
     width: 100%;
 }
 
@@ -70,7 +75,7 @@ body {
     cursor: pointer;
 }
 
-::placeholder {
+ ::placeholder {
     color: var(--secondary-color);
 }
 
@@ -133,40 +138,44 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    position: relative;
 }
 
 .no-text {
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
 }
 
 .current-temp-up {
     width: 100%;
+    position: relative;
 }
 
 .degrees {
     text-align: right;
-    width: 100%;
-    margin-bottom: -3rem;
+    margin-bottom: -4rem;
     z-index: 1000;
+    position: absolute;
+    left: 68%;
+    top: 10%;
 }
 
 .fah,
-.cel,
-.mid-line {
+.cel {
     font-size: var(--third-font-size);
     color: var(--primary-color);
-}
-
-.fah {
-    border-right: 1px solid white;
-    padding: 0 0.5rem;
 }
 
 .fah:hover,
 .cel:hover {
     cursor: pointer;
+}
+
+.fah {
+    border-right: 1px solid white;
+    padding: 0 0.5rem;
 }
 
 .active-degree {
@@ -178,7 +187,6 @@ body {
     font-weight: 500;
     color: var(--primary-color);
     text-align: center;
-    /* line-height: 18rem; */
 }
 
 .name-of-place-full,
@@ -186,15 +194,20 @@ body {
     font-size: var(--third-font-size);
     color: var(--primary-color);
     font-weight: 300;
+    position: absolute;
+    top: 78%;
+}
+
+.name-of-place-full {
+    left: 10%;
+    right: 20%;
+    text-align: center;
+    width: 80%;
 }
 
 .icon-image img {
     height: 11rem;
     width: 10rem;
-}
-
-.icon-description {
-    margin-top: 1.5rem;
 }
 
 
@@ -209,6 +222,16 @@ body {
     width: 100%;
     background-color: rgb(48, 111, 194);
     align-items: center;
+}
+
+.max-temp,
+.min-temp,
+.feels-like,
+.wind-speed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .max-temp,
@@ -231,21 +254,20 @@ body {
 .feels-like-number,
 .wind-speed-number {
     font-size: var(--secondary-font-size);
-    text-align: center;
-}
-
-.wind-speed-number {
-    margin-bottom: -1rem;
+    align-self: center;
 }
 
 .max-temp-text,
 .min-temp-text,
 .feels-like-text,
 .wind-speed-text {
-    font-size: var(--fourth-font-size);
+    font-size: var(--third-font-size);
     font-weight: 400;
     text-align: center;
-    margin-top: 1rem;
+}
+
+.wind-speed-text {
+    padding-top: 0.1rem;
 }
 
 
@@ -270,7 +292,7 @@ body {
 
 .humidity-text,
 .visibility-text {
-    font-size: var(--third-font-size);
+    font-size: var(--secondary-font-size);
     font-weight: 500;
     text-align: center;
 }
@@ -281,7 +303,7 @@ body {
 
 .humidity-number,
 .visibility-number {
-    font-size: var(--fifth-font-size);
+    font-size: var(--third-font-size);
     font-weight: 200;
     text-align: center;
 }
@@ -296,93 +318,71 @@ body {
 
 /* Media Query starts */
 
-@media screen and (max-width:415px),
-screen and (max-height:840px) {
-    .search-bar {
-        width: 18rem;
-        padding: 0.9rem;
-    }
-    .search-icon {
-        height: 2rem;
+@media screen and (max-width: 1024px) {
+    .main-container {
         width: 100%;
-        border-bottom: 1px solid rgb(20, 20, 20);
     }
-    #search-bar-text {
-        padding: 0 0.9rem;
-        width: 18rem;
-        font-size: 0.9rem;
-    }
+}
+
+@media screen and (max-width: 375px) {
     .current-temp-number {
-        font-size: 6rem;
-        line-height: 12rem;
+        font-size: 7rem;
     }
-    .icon-image img {
-        height: 9rem;
-        width: 10rem;
+    .degrees {
+        left: 67%;
+        top: 0;
     }
     .name-of-place-full,
-    .icon-description {
-        font-size: 1.2rem;
-        font-weight: 300;
-    }
-    . .max-temp-number,
-    .min-temp-number,
-    .feels-like-number,
-    .wind-speed-number,
-    .humidity-text,
-    .visibility-text {
-        font-size: 1.6rem;
-    }
+    .icon-description,
     .max-temp-text,
     .min-temp-text,
     .feels-like-text,
     .wind-speed-text {
         font-size: 0.9rem;
-        margin-top: 0.9rem;
-    }
-    .wind-speed-number {
-        margin-bottom: -1.5rem;
-    }
-    .humidity-number,
-    .visibility-number {
-        font-size: 0.9rem;
-        font-weight: 400;
     }
 }
 
-
-/* 
-@media screen and (max-width :770px) and (max-height:1030px) {
-    .search-bar {
-        width: 20rem;
-        padding: 1rem;
-    }
-    .search-icon {
-        height: 2rem;
-        width: 100%;
-        border-bottom: 1px solid rgb(20, 20, 20);
-    }
-    #search-bar-text {
-        padding: 0 0.9rem;
-        width: 19rem;
-        font-size: 1rem;
-    }
+@media screen and (min-height: 800px) and (min-width: 700px) {
     .current-temp-number {
-        font-size: 11rem;
-        line-height: 13rem;
+        font-size: 13rem;
     }
-    .icon-image img {
-        height: 12rem;
-        width: 13rem;
-        margin-top: 2rem;
-    }
+    .fah,
+    .cel,
     .name-of-place-full,
-    .icon-description {
+    .icon-description,
+    .max-temp-text,
+    .min-temp-text,
+    .feels-like-text,
+    .wind-speed-text,
+    .humidity-number,
+    .visibility-number {
+        font-size: 1.6rem;
+    }
+    .max-temp-number,
+    .min-temp-number,
+    .feels-like-number,
+    .wind-speed-number,
+    .humidity-text,
+    .visibility-text {
         font-size: 2rem;
-        font-weight: 300;
     }
-    .icon-description {
-        margin-top: -0.5rem
+}
+
+@media screen and (min-height: 1250px) and (min-width: 1020px) {
+    .current-temp-number {
+        font-size: 18rem;
+    }
+    .fah,
+    .cel,
+    .name-of-place-full,
+    .icon-description,
+    .max-temp-text,
+    .min-temp-text,
+    .feels-like-text,
+    .wind-speed-text,
+    .humidity-number,
+    .visibility-number {
+        font-size: 2.3rem;
     }
     .max-temp-number,
     .min-temp-number,
@@ -390,148 +390,6 @@ screen and (max-height:840px) {
     .wind-speed-number,
     .humidity-text,
     .visibility-text {
-        font-size: 2.5rem;
-    }
-    .max-temp-text,
-    .min-temp-text,
-    .feels-like-text,
-    .wind-speed-text {
-        font-size: 1.5rem;
-        margin-top: 2.5rem;
-    }
-    .wind-speed-number {
-        margin-bottom: -2rem;
-    }
-    .humidity-number,
-    .visibility-number {
-        font-size: 1.5rem;
-        font-weight: 400;
-    }
-} */
-
-
-/* 
-@media screen and (min-width :768px),
-screen and (min-height:1030px) {
-    .current-temp-number {
-        font-size: 12rem;
-        line-height: 20rem;
-    }
-    .icon-image {
-        height: 20rem;
-        width: 15rem;
-        margin-top: 1rem;
-    }
-    .name-of-place-full,
-    .icon-description {
-        font-size: 1.8rem;
-        font-weight: 300;
-    }
-    .icon-description {
-        margin-top: -3rem;
-        padding-top: 0.5rem;
-    }
-    .search-bar {
-        width: 20rem;
-        padding: 0.9rem;
-    }
-    .search-icon {
-        height: 87%;
-        width: 100%;
-        border-bottom: 1px solid rgb(20, 20, 20);
-    }
-    #search-bar-text {
-        padding: 0 0.9rem;
-        width: 18rem;
-        font-size: 1.5rem;
-    }
-    .max-temp-number,
-    .min-temp-number,
-    .feels-like-number,
-    .wind-speed-number {
-        font-size: 2.6rem;
-    }
-    .max-temp-text,
-    .min-temp-text,
-    .feels-like-text,
-    .wind-speed-text {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-    }
-    .wind-speed-number {
-        margin-bottom: -1.5rem;
-    }
-    .humidity-text,
-    .visibility-text {
-        font-size: 2.6rem;
-    }
-    .humidity-number,
-    .visibility-number {
-        font-size: 1.5rem;
-        font-weight: 400;
+        font-size: 2.8rem;
     }
 }
-
-@media screen and (max-width :1020px),
-screen and (min-height:1360px) {
-    .current-temp-number {
-        font-size: 16rem;
-        line-height: 22rem;
-    }
-    .icon-image {
-        height: 22rem;
-        width: 17rem;
-        margin-top: 1rem;
-    }
-    .name-of-place-full,
-    .icon-description {
-        font-size: 2.2rem;
-        font-weight: 300;
-    }
-    .icon-description {
-        margin-top: -3rem;
-        padding-top: 0.5rem;
-    }
-    .search-bar {
-        width: 24rem;
-        padding: 0.9rem;
-    }
-    .search-icon {
-        height: 87%;
-        width: 100%;
-        border-bottom: 1px solid rgb(20, 20, 20);
-    }
-    #search-bar-text {
-        padding: 0 0.9rem;
-        width: 20rem;
-        font-size: 1.6rem;
-    }
-    .max-temp-number,
-    .min-temp-number,
-    .feels-like-number,
-    .wind-speed-number {
-        font-size: 3.2rem;
-    }
-    .max-temp-text,
-    .min-temp-text,
-    .feels-like-text,
-    .wind-speed-text {
-        font-size: 2.2rem;
-        margin-top: 2.5rem;
-    }
-    .wind-speed-number {
-        margin-bottom: -2.5rem;
-    }
-    .humidity-text,
-    .visibility-text {
-        font-size: 3.2rem;
-    }
-    .humidity-number,
-    .visibility-number {
-        font-size: 2.2rem;
-        font-weight: 400;
-    }
-} */
-
-
-/* Media Query ends */

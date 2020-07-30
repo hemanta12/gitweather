@@ -1,6 +1,8 @@
 window.addEventListener('load', () => {
     let long;
     let lat;
+
+    const mainContainer = document.querySelector('body');
     const dbackgroundImage = document.querySelector('.container1');
     const searchbarText = document.querySelector('#search-bar-text');
     const searchIcon = document.querySelector('.search-icon');
@@ -15,18 +17,15 @@ window.addEventListener('load', () => {
     const feelsLikeNumber = document.querySelector('.feels-like-number');
     const windSpeedNumber = document.querySelector('.wind-speed-number');
     const windSpeedText = document.querySelector('.wind-speed-text');
-
     const humidityNumber = document.querySelector('.humidity-number');
     const visibilityNumber = document.querySelector('.visibility-number');
     const messageSection = document.querySelector('.message');
     const messageText = document.querySelector('.message-text');
 
-
-
-
     // The api used
     let apiID = `575324418d03a4a82d9b0e5727371f84`;
-    let api1 = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?appid=${apiID}`;
+    let proxy = `https://cors-anywhere.herokuapp.com/`;
+    let api1 = `http://api.openweathermap.org/data/2.5/weather?appid=${apiID}`;
 
     let userCity = '';
     //getting the latitude and longitude value from the user's browser/device
@@ -105,10 +104,6 @@ window.addEventListener('load', () => {
                 minTempNumber.textContent = temp_min;
                 iconDescription.textContent = description;
 
-                // set date
-                // let newdate = new Date();
-                // currentDate.textContent = newdate.toDateString();
-
                 //converting kelvin to celsius
                 let celsius = temp - 273.15;
                 let celsius_min = temp_min - 273.15;
@@ -163,36 +158,52 @@ window.addEventListener('load', () => {
                 function setBackgroundImage() {
                     if (newIcons == '01d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/clear-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/clear-day.jpg')";
                     } else if (newIcons == '01n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/clear-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/clear-night.jpg')";
                     } else if (newIcons == '02d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/little-cloudy-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/little-cloudy-day.jpg')";
                     } else if (newIcons == '02n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/little-cloudy-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/little-cloudy-night.jpg')";
                     } else if (newIcons == '03d' || newIcons == '04d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/dark-cloudy-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/dark-cloudy-day.jpg')";
                     } else if (newIcons == '03n' || newIcons == '04n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/dark-cloudy-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/dark-cloudy-night.jpg')";
                     } else if (newIcons == '09d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/rainy-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/rainy-day.jpg')";
                     } else if (newIcons == '09n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/rainy-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/rainy-night.jpg')";
                     } else if (newIcons == '10d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/light-rain-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/light-rain-day.jpg')";
                     } else if (newIcons == '10n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/light-rain-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/light-rain-night.jpg')";
                     } else if (newIcons == '11d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/thunder-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/thunder-day.jpg')";
                     } else if (newIcons == '11n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/thunder-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/thunder-night.jpg')";
                     } else if (newIcons == '13d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/snow-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/snow-day.jpg')";
                     } else if (newIcons == '13n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/snow-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/snow-night.jpg')";
                     } else if (newIcons == '50d') {
                         dbackgroundImage.style.backgroundImage = "url('./images/hazy-day.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/hazy-day.jpg')";
                     } else if (newIcons == '50n') {
                         dbackgroundImage.style.backgroundImage = "url('./images/hazy-night.jpg')";
+                        mainContainer.style.backgroundImage = "url('./images/hazy-night.jpg')";
                     }
                 };
 
